@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SBI Credit Card | Apply, Limit Increase & Card Services</title>
+  <style>
+    :root {
+      --sbi-blue: #003366;
+      --sbi-blue-dark: #002244;
+      --sbi-sky: #0072bc;
+      --sbi-accent: #e6f2ff;
+      --bg-page: #f3f6fa;
+      --card-bg: #ffffff;
+      --text-main: #111827;
+      --text-muted: #5b6778;
+      --border: #d8e1ec;
+      --success: #0f766e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.45;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: var(--bg-page);
+      padding-bottom: 32px;
+    }
+
+    /* Top SBI Banner */
+    .hero-banner {
+      background: linear-gradient(145deg, var(--sbi-blue-dark) 0%, var(--sbi-blue) 58%, var(--sbi-sky) 100%);
+      color: #ffffff;
+      padding: 20px 18px 28px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+
+    .secure-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #e0f2fe;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+    }
+
+    .tagline {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      color: #93c5fd;
+      margin-bottom: 6px;
+    }
+
+    .hero-heading {
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .hero-heading span {
+      color: #7dd3fc;
+    }
+
+    .hero-desc {
+      font-size: 13px;
+      color: #e2e8f0;
+    }
+
+    /* Main Form Card */
+    .form-card {
+      background: var(--card-bg);
+      margin: -14px 12px 16px;
+      border-radius: 16px;
+      padding: 20px 16px;
+      box-shadow: 0 8px 24px rgba(0, 51, 102, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    .form-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--sbi-blue-dark);
+      margin-bottom: 4px;
+    }
+
+    .form-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .field-group {
+      margin-bottom: 15px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 3px;
+    }
+
+    .req {
+      color: #dc2626;
+    }
+
+    .field-hint {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+    }
+
+    .input-box,
+    .select-box {
+      width: 100%;
+      height: 46px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 0 13px;
+      font-size: 14px;
+      color: var(--text-main);
+      background: #ffffff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .input-box:focus,
+    .select-box:focus {
+      border-color: var(--sbi-sky);
+      box-shadow: 0 0 0 3px rgba(0, 114, 188, 0.14);
+    }
+
+    .phone-row {
+      display: flex;
+      align-items: center;
+      height: 46px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 10px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .phone-row:focus-within {
+      border-color: var(--sbi-sky);
+      box-shadow: 0 0 0 3px rgba(0, 114, 188, 0.14);
+    }
+
+    .country-code {
+      padding: 0 12px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--sbi-blue);
+      background: #f8fafc;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      border-right: 1px solid #e2e8f0;
+    }
+
+    .phone-input {
+      flex: 1;
+      border: none;
+      height: 100%;
+      padding: 0 12px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .consent-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: #475569;
+    }
+
+    .consent-box input {
+      margin-top: 2px;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--sbi-blue);
+      flex-shrink: 0;
+    }
+
+    .consent-box a {
+      color: var(--sbi-sky);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .submit-btn {
+      width: 100%;
+      height: 48px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--sbi-blue) 0%, var(--sbi-sky) 100%);
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 6px 16px rgba(0, 82, 155, 0.25);
+    }
+
+    .submit-btn:active {
+      transform: scale(0.99);
+    }
+
+    .ssl-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--success);
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    .status-msg {
+      display: none;
+      margin-top: 12px;
+      padding: 11px 12px;
+      border-radius: 10px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Visual Credit Card Preview */
+    .visual-card {
+      margin: 0 12px 14px;
+      border-radius: 16px;
+      padding: 20px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #002244 0%, #004c8c 55%, #0077c8 100%);
+      box-shadow: 0 10px 24px rgba(0, 34, 68, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visual-card::after {
+      content: "";
+      position: absolute;
+      right: -35px;
+      bottom: -35px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .emv-chip {
+      width: 44px;
+      height: 32px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #facc15, #eab308);
+      margin-bottom: 16px;
+    }
+
+    .card-brand {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .card-tier {
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      color: #bae6fd;
+      margin-bottom: 18px;
+    }
+
+    .card-number {
+      font-size: 18px;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 11px;
+    }
+
+    .card-footer .val {
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .network-circles {
+      display: flex;
+      align-items: center;
+    }
+
+    .network-circles span {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .c-red {
+      background: rgba(239, 68, 68, 0.88);
+    }
+
+    .c-yellow {
+      background: rgba(250, 204, 21, 0.88);
+      margin-left: -9px;
+    }
+
+    /* Fee Summary Dark Box */
+    .fee-box {
+      margin: 0 12px 18px;
+      background: #0b192c;
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 18px 16px;
+    }
+
+    .fee-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #7dd3fc;
+      margin-bottom: 4px;
+    }
+
+    .fee-big {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .fee-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .fee-item {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+
+    .fee-item .amt {
+      font-size: 16px;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+
+    .fee-item .txt {
+      font-size: 11px;
+      color: #cbd5e1;
+      margin-top: 2px;
+    }
+
+    /* Benefits Section */
+    .benefits-heading {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--sbi-blue-dark);
+      margin: 0 14px 10px;
+    }
+
+    .benefit-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px 14px;
+      margin: 0 12px 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .benefit-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--sbi-accent);
+      color: var(--sbi-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .benefit-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .benefit-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 22px;
+      padding: 0 16px;
+    }
+
+    .footer a {
+      color: var(--sbi-blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top SBI Header -->
+    <header class="hero-banner">
+      <div class="top-bar">
+        <div>
+          <div class="brand-title">SBI CREDIT CARD</div>
+          <div class="brand-sub">Card Services &amp; Eligibility Portal</div>
+        </div>
+        <div class="secure-pill">
+          <span class="dot"></span> SECURE
+        </div>
+      </div>
+
+      <div class="tagline">LIMIT INCREASE • UPDATE CARD • APPLY NEW CARD</div>
+      <h1 class="hero-heading">SBI Credit Card <span>Instant Services</span></h1>
+      <p class="hero-desc">
+        Request a limit increase, update card details, or apply for a new SBI credit card with quick online verification.
+      </p>
+    </header>
+
+    <!-- Main Form -->
+    <main class="form-card">
+      <h2 class="form-title">Select Service &amp; Apply</h2>
+      <p class="form-subtitle">Choose Limit Increase, Update Card, or Apply New Card below</p>
+
+      <form id="sbiCardForm">
+        <div class="field-group">
+          <label class="field-label" for="serviceSelect">Select Service <span class="req">*</span></label>
+          <span class="field-hint">Choose what you want to do with your card</span>
+          <select id="serviceSelect" class="select-box" required>
+            <option value="" selected disabled>-- Select Service --</option>
+            <option value="Limit Increase">Limit Increase</option>
+            <option value="Update Card">Update Card</option>
+            <option value="Apply New Card">Apply New Card</option>
+            <option value="Card Block">Card Block</option>
+            <option value="Card Active">Card Active</option>
+            <option value="KYC Update">KYC Update</option>
+            <option value="International / Domestic Usage">International / Domestic Usage</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="fullName">Full Name <span class="req">*</span></label>
+          <span class="field-hint">As printed on your PAN card</span>
+          <input type="text" id="fullName" class="input-box" placeholder="e.g. Rahul Kumar Sharma" required />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="mobileNumber">Mobile Number <span class="req">*</span></label>
+          <span class="field-hint">Your registered mobile for verification</span>
+          <div class="phone-row">
+            <span class="country-code">+91</span>
+            <input type="tel" id="mobileNumber" class="phone-input" placeholder="98765 43210" maxlength="10" pattern="[0-9]{10}" required />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="dob">Date of Birth <span class="req">*</span></label>
+          <span class="field-hint">Format: DD-MM-YYYY (must be 18+)</span>
+          <input type="date" id="dob" class="input-box" required />
+        </div>
+
+        <label class="consent-box">
+          <input type="checkbox" id="agreeCheck" required />
+          <span>
+            I agree to the <a href="#privacy">Privacy Policy</a> and consent to being contacted regarding my request.
+          </span>
+        </label>
+
+        <button type="submit" class="submit-btn">
+          Submit Request <span>&#8594;</span>
+        </button>
+
+        <div class="ssl-note">&#128274; 256-bit SSL Encrypted &bull; Data Protected</div>
+        <div id="statusMsg" class="status-msg"></div>
+      </form>
+    </main>
+
+    <!-- SBI Card Preview -->
+    <section class="visual-card" aria-label="SBI Credit Card Preview">
+      <div class="emv-chip"></div>
+      <div class="card-brand">SBI CARD</div>
+      <div class="card-tier">EXCLUSIVE MEMBER</div>
+      <div class="card-number">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;</div>
+      <div class="card-footer">
+        <div>
+          <div>VALID THRU</div>
+          <div class="val">12/31</div>
+        </div>
+        <div>
+          <div>CARD HOLDER</div>
+          <div class="val" id="previewName">CARD HOLDER</div>
+        </div>
+        <div class="network-circles">
+          <span class="c-red"></span>
+          <span class="c-yellow"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fee Overview -->
+    <section class="fee-box">
+      <div class="fee-label">ANNUAL FEE</div>
+      <div class="fee-big">&#8377;0 &mdash; Select Plans</div>
+      <div class="fee-grid">
+        <div class="fee-item">
+          <div class="amt">&#8377;0</div>
+          <div class="txt">Joining Fee</div>
+        </div>
+        <div class="fee-item">
+          <div class="amt">&#8377;0</div>
+          <div class="txt">Annual Fee</div>
+        </div>
+        <div class="fee-item">
+          <div class="amt">&infin;</div>
+          <div class="txt">Easy Controls</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <h3 class="benefits-heading">Amazing Benefits</h3>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">&#9992;</div>
+      <div>
+        <div class="benefit-title">Airport Lounge Access</div>
+        <div class="benefit-desc">Enjoy comfortable travel perks on eligible SBI cards</div>
+      </div>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">&#128722;</div>
+      <div>
+        <div class="benefit-title">Shopping &amp; Online Offers</div>
+        <div class="benefit-desc">Get reward points and seasonal discounts across top brands</div>
+      </div>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">&#128241;</div>
+      <div>
+        <div class="benefit-title">UPI &amp; Contactless Payments</div>
+        <div class="benefit-desc">Fast, secure payments with quick limit &amp; card management</div>
+      </div>
+    </div>
+
+    <div class="benefit-card">
+      <div class="benefit-icon">&#127916;</div>
+      <div>
+        <div class="benefit-title">Movie &amp; Lifestyle Privileges</div>
+        <div class="benefit-desc">Exclusive entertainment and dining offers on select cards</div>
+      </div>
+    </div>
+
+    <footer class="footer" id="privacy">
+      <div>&copy; 2026 All rights reserved</div>
+      <div style="margin-top: 4px;">support@sbicard-portal.example &bull; +91 98765 43210</div>
+      <div style="margin-top: 4px;"><a href="#top">Privacy Policy</a></div>
+    </footer>
+  </div>
+
+  <script>
+    const fullNameInput = document.getElementById("fullName");
+    const previewName = document.getElementById("previewName");
+    const form = document.getElementById("sbiCardForm");
+    const statusMsg = document.getElementById("statusMsg");
+
+    fullNameInput.addEventListener("input", () => {
+      const val = fullNameInput.value.trim();
+      previewName.textContent = val ? val.toUpperCase() : "CARD HOLDER";
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const service = document.getElementById("serviceSelect").value;
+      const name = fullNameInput.value.trim();
+      const mobile = document.getElementById("mobileNumber").value.trim();
+
+      statusMsg.style.display = "block";
+      statusMsg.textContent = `Request recorded for "${service}" (${name}, +91 ${mobile}). Connect Firebase/backend to process OTP & save logs.`;
+    });
+  </script>
+</body>
+</html>
