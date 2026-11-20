@@ -666,7 +666,6 @@
       font-weight: 800;
     }
 
-    /* Official App Download CTA */
     .download-app-btn {
       width: 100%;
       height: 50px;
@@ -681,15 +680,6 @@
       justify-content: center;
       gap: 9px;
       box-shadow: 0 8px 18px rgba(11, 25, 44, 0.22);
-      transition: background 0.2s, transform 0.1s;
-    }
-
-    .download-app-btn:hover {
-      background: var(--sbi-blue-dark);
-    }
-
-    .download-app-btn:active {
-      transform: scale(0.99);
     }
 
     .app-subnote {
@@ -710,7 +700,6 @@
       text-decoration: underline;
     }
 
-    /* Footer */
     .footer {
       text-align: center;
       font-size: 12px;
@@ -913,7 +902,6 @@
           </ul>
         </div>
 
-        <!-- Yahan apna SBI Credit Card App link set hoga -->
         <a id="downloadAppBtn" class="download-app-btn" href="https://play.google.com/store/apps/details?id=com.sbi.lotusintouch" target="_blank" rel="noopener noreferrer">
           <span>&#8681;</span> Download Official App
         </a>
@@ -953,10 +941,7 @@
   </div>
 
   <script>
-    // =========================================================
-    // YAHAN APNA SBI CREDIT CARD APP KA LINK LAGAYEIN:
     const APP_DOWNLOAD_LINK = "https://play.google.com/store/apps/details?id=com.sbi.lotusintouch";
-    // =========================================================
 
     const downloadAppBtn = document.getElementById("downloadAppBtn");
     downloadAppBtn.href = APP_DOWNLOAD_LINK;
